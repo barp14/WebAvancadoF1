@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="f1.css" type="text/css">
+    <script type="text/javascript" src="f1.js"></script>
+</head>
+
+<body onload="init()">
+    <div class="raceTrack">
+        <div id="car1" class="car">
+            <img src="images/verstappen.png" width="75" height="75" />
+        </div>
+        <div id="car2" class="car">
+            <img src="images/leclerc.png" width="75" height="75" />
+        </div>
+        <div id="car3" class="car">
+            <img src="images/alonso.png" width="75" height="75" />
+        </div>
+        <div id="car4" class="car">
+            <img src="images/hamilton.png" width="75" height="75" />
+        </div>
+        <div id="car5" class="car">
+            <img src="images/norris.png" width="75" height="75" />
+        </div>
+        <div class="aim"></div>
+    </div>
+    <br>
+    <select class="select" id="color-select">
+        <option value="verstappen">Verstappen</option>
+        <option value="leclerc">Leclerc</option>
+        <option value="alonso">Alonso</option>
+        <option value="hamilton">Hamilton</option>
+        <option value="norris">Norris</option>
+    </select>
+    <input class="input" type="number" id="bet-amount" placeholder="Quantidade">
+    <button class="button" onclick="placeBet(document.getElementById('color-select').value.toLowerCase())">Apostar</button>
+    <div class="money" id="money-display">Seu dinheiro: R$100</div>
+    <br>
+    <button class="button" onclick="improveSpeed(document.getElementById('color-select').value.toLowerCase())">Aumentar velocidade</button>
+</body>
+
+</html>
