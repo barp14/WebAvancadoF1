@@ -1,7 +1,6 @@
 let winnerCarColor = ''; // Variável para armazenar a cor do carro vencedor
 let playerMoney = 100; // Dinheiro inicial do jogador
 let betAmount = 100; // Valor da aposta
-let upgradeValue = 0;
 
 // Função para inicializar a posição dos carros
 function init() {
@@ -25,18 +24,19 @@ function moveCar(car) {
     let position = 50;
     const raceTrackWidth = document.querySelector('.raceTrack').offsetWidth - car.offsetWidth;
     const moveInterval = setInterval(function() {
+        const speedIncrease = parseInt(car.getAttribute('data-speed-increase')) || 0; // Obter o aumento de velocidade
         if (position > raceTrackWidth) {
             clearInterval(moveInterval);
             if (!winnerCarColor) {
-                winnerCarColor = getComputedStyle(car).backgroundColor; // define a cor do carro vencedor para soltar um alert na tela
+                winnerCarColor = getComputedStyle(car).backgroundColor; // Define a cor do carro vencedor para soltar um alert na tela
                 alert('O vencedor do GrandPrix é ' + getColorName(winnerCarColor) + '!');
             }
         } else {
-            position += Math.floor(Math.random() * 10);
-            car.style.left = position + 'px';
+            position += Math.floor((Math.random() + speedIncrease) * 10); // Aumentar a velocidade
+            car.style.transform = "translateX(" + position + "px)"; // Ajustar a posição
         }
     });
-    }
+}
 
 // Mapeamento das cores dos carros pra ficar mais legal no alert
 function getColorName(color) {
@@ -91,18 +91,22 @@ function placeBet(playerBetColor) {
     }, 3500);
     }   
 
-    function improveSpeed(playerBetColor){
-        const car = document.getElementById(playerBetColor);
+    function improveSpeed() {
+        const selectedColor = document.getElementById('color-select').value;
+        if (selectedColor) {
+            const carId = selectedColor.toLowerCase();
+            const car = document.getElementById(carId);
+            const upgradeValue = 7;
     
-        upgradeValue == parseInt(7);
-        if(parseInt(playerMoney) < upgradeValue){
-            alert('Você não pode comprar esse upgrade!');
-            return;
-        } else {
-            playerMoney -= upgradeValue;
-            const newPosition = parseInt(car.style.left) + Math.floor(Math.random() * 14);
-                car.style.left = newPosition + 'px';
-                alert('Você aumentou sutilmente a velocidade do carro do ' + playerBetColor);
+            if (parseInt(playerMoney) < upgradeValue) {
+                alert('Você não pode comprar esse upgrade!');
+                return;
+            } else {
+                playerMoney -= upgradeValue;
+                updateMoneyDisplay()
+                const subtleSpeedIncrease = 1;
+                car.setAttribute('data-speed-increase', subtleSpeedIncrease);
+                alert('Você aumentou sutilmente a velocidade do carro ' + getColorName(selectedColor));
             }
-    }
-    
+        }
+    }    

@@ -6,7 +6,7 @@
     background-color: lightgrey;
   }
   
-  #car1 {
+  #verstappen {
     position: absolute;
     z-index: 1000;
     background-color: blue;
@@ -15,7 +15,7 @@
     top: 45px;
     left: 50px;
   }
-  #car2 {
+  #leclerc {
     position: absolute;
     z-index: 1000;
     background-color: red;
@@ -24,7 +24,7 @@
     top: 100px;
     left: 50px;
   }
-  #car3 {
+  #alonso {
     position: absolute;
     z-index: 1000;
     background-color: green;
@@ -33,7 +33,7 @@
     top: 155px;
     left: 50px;
   }
-  #car4 {
+  #hamilton {
     position: absolute;
     z-index: 1000;
     background-color: black;
@@ -42,7 +42,7 @@
     top: 210px;
     left: 50px;
   }
-  #car5 {
+  #norris {
     position: absolute;
     z-index: 1000;
     background-color: orange;

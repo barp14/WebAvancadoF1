@@ -9,19 +9,19 @@
 
 <body onload="init()">
     <div class="raceTrack">
-        <div id="car1" class="car">
+        <div id="verstappen" class="car" data-speed="1">
             <img src="images/verstappen.png" width="75" height="75" />
         </div>
-        <div id="car2" class="car">
+        <div id="leclerc" class="car" data-speed="1">
             <img src="images/leclerc.png" width="75" height="75" />
         </div>
-        <div id="car3" class="car">
+        <div id="alonso" class="car" data-speed="1">
             <img src="images/alonso.png" width="75" height="75" />
         </div>
-        <div id="car4" class="car">
+        <div id="hamilton" class="car" data-speed="1">
             <img src="images/hamilton.png" width="75" height="75" />
         </div>
-        <div id="car5" class="car">
+        <div id="norris" class="car" data-speed="1">
             <img src="images/norris.png" width="75" height="75" />
         </div>
         <div class="aim"></div>
@@ -38,7 +38,7 @@
     <button class="button" onclick="placeBet(document.getElementById('color-select').value.toLowerCase())">Apostar</button>
     <div class="money" id="money-display">Seu dinheiro: R$100</div>
     <br>
-    <button class="button" onclick="improveSpeed(document.getElementById('color-select').value.toLowerCase())">Aumentar velocidade</button>
+    <button class="button" onclick="improveSpeed()">Aumentar velocidade</button>
 </body>
 
 </html>
