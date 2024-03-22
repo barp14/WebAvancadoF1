@@ -60,7 +60,7 @@ function placeBet(playerBetColor) {
     const betAmountInput = document.getElementById('bet-amount');
     const betAmount = parseInt(betAmountInput.value);
 
-    if (isNaN(betAmount) || betAmount <= 0 || playerMoney < betAmount) {
+    if (isNaN(betAmount) || betAmount <= 0 || playerMoney < betAmount || betAmount < 5) {
         alert('Aposta inválida!');
         return;
     }
